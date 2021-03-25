@@ -22,8 +22,8 @@ CREATE VIEW tweets AS (
         data->>'in_reply_to_status_id' AS in_reply_to_status_id,
         data->>'in_reply_to_user_id' AS in_reply_to_user_id,
         data->>'quoted_status_id' AS quoted_status_id,
-        'FIXME' AS geo_coords, -- these "FIXME" columns involve complex python processing; they could be implemented in pure SQL, but it'd be a pain
-        'FIXME' AS geo_string,
+        'DONTTOUCH' AS geo_coords, -- these "DONTTOUCH" columns involve complex python processing; they could be implemented in pure SQL, but it'd be a pain
+        'DONTTOUCH' AS geo_string,
         data->>'retweet_count' AS retweet_count,
         data->>'quote_count' AS quote_count,
         data->>'favorite_count' AS favorite_count,
@@ -31,7 +31,7 @@ CREATE VIEW tweets AS (
         data->'withheld_in_countries' AS withheld_in_countries,
         data->'place'->>'full_name' AS place_name,
         lower(data->'place'->>'country_code') AS country_code,
-        'FIXME' AS state_code,
+        'DONTTOUCH' AS state_code,
         data->>'lang' AS lang,
         COALESCE(data->'extended_tweet'->>'full_text',data->>'text') AS text,
         data->>'source' AS source
